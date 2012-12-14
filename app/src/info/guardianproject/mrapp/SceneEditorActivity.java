@@ -72,7 +72,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.animoto.android.views.DraggableGridView;
 import com.animoto.android.views.OnRearrangeListener;
 
-public class SceneEditorNoSwipeActivity extends org.holoeverywhere.app.Activity implements ActionBar.TabListener {
+public class SceneEditorActivity extends org.holoeverywhere.app.Activity implements ActionBar.TabListener {
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 	
 	private final static int REQ_OVERLAY_CAM = 888; //for resp handling from overlay cam launch
@@ -171,7 +171,7 @@ public class SceneEditorNoSwipeActivity extends org.holoeverywhere.app.Activity 
 				
 				case 999:
 					
-						dialog = new ProgressDialog(SceneEditorNoSwipeActivity.this);
+						dialog = new ProgressDialog(SceneEditorActivity.this);
 	          		    dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 	          		    dialog.setTitle(getString(R.string.rendering));
 	          		    dialog.setMessage(getString(R.string.rendering_project_));
@@ -685,7 +685,7 @@ public class SceneEditorNoSwipeActivity extends org.holoeverywhere.app.Activity 
     					if (isChecked)
     					{
     						ServerManager sm = StoryMakerApp.getServerManager();
-    	    				sm.setContext(SceneEditorNoSwipeActivity.this);
+    	    				sm.setContext(SceneEditorActivity.this);
     	    				
     	    				if (!sm.hasCreds())    	    				
     	    					showLogin();    	    				
@@ -703,7 +703,7 @@ public class SceneEditorNoSwipeActivity extends org.holoeverywhere.app.Activity 
 					public void onClick(View v) {
 						
 	    				ServerManager sm = StoryMakerApp.getServerManager();
-	    				sm.setContext(SceneEditorNoSwipeActivity.this);
+	    				sm.setContext(SceneEditorActivity.this);
 	    				
 	    				if (sm.hasCreds())
 	    					handlePublish ();
@@ -725,7 +725,7 @@ public class SceneEditorNoSwipeActivity extends org.holoeverywhere.app.Activity 
 
         private void checkYouTubeAccount ()
         {
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(SceneEditorNoSwipeActivity.this);
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(SceneEditorActivity.this);
             mMediaUploadAccount = settings.getString("youTubeUserName",null);
             
             if (mMediaUploadAccount == null)
@@ -739,7 +739,7 @@ public class SceneEditorNoSwipeActivity extends org.holoeverywhere.app.Activity 
 		            for (int i = 0; i < accounts.length; i++)
 		            	accountNames[i] = accounts[i].name;
 	
-	                AlertDialog.Builder builder = new AlertDialog.Builder(SceneEditorNoSwipeActivity.this);
+	                AlertDialog.Builder builder = new AlertDialog.Builder(SceneEditorActivity.this);
 	                builder.setTitle(R.string.choose_account_for_youtube_upload);
 	                builder.setItems(accountNames, new DialogInterface.OnClickListener() {
 	                    public void onClick(DialogInterface dialog, int item) {
@@ -791,7 +791,7 @@ public class SceneEditorNoSwipeActivity extends org.holoeverywhere.app.Activity 
 				ytdesc = getActivity().getString(R.string.default_youtube_desc); //can't leave the description blank for YouTube
 			}
 			
-			final YouTubeSubmit yts = new YouTubeSubmit(null, title, ytdesc, new Date(),SceneEditorNoSwipeActivity.this, mHandlerPub);
+			final YouTubeSubmit yts = new YouTubeSubmit(null, title, ytdesc, new Date(),SceneEditorActivity.this, mHandlerPub);
 			
     		Thread thread = new Thread ()
     		{
@@ -799,7 +799,7 @@ public class SceneEditorNoSwipeActivity extends org.holoeverywhere.app.Activity 
     			{
     				
     				ServerManager sm = StoryMakerApp.getServerManager();
-    				sm.setContext(SceneEditorNoSwipeActivity.this);
+    				sm.setContext(SceneEditorActivity.this);
     				
     				Message msg = mHandlerPub.obtainMessage(888);
     				msg.getData().putString("status", getActivity().getString(R.string.rendering_clips_));
@@ -854,7 +854,7 @@ public class SceneEditorNoSwipeActivity extends org.holoeverywhere.app.Activity 
 		    							String scurl = SoundCloudUploader.buildSoundCloudURL(mMediaUploadAccount, mediaFile, title);
 				    					mediaEmbed = "[soundcloud]" + scurl + "[/soundcloud]";
 				    					
-				    					SoundCloudUploader.uploadSound(mediaFile, title, desc, REQ_SOUNDCLOUD, SceneEditorNoSwipeActivity.this);
+				    					SoundCloudUploader.uploadSound(mediaFile, title, desc, REQ_SOUNDCLOUD, SceneEditorActivity.this);
 	 
 		    						}
 		    						else
