@@ -454,8 +454,7 @@ public class SceneEditorActivity extends org.holoeverywhere.app.Activity impleme
     }
 
     /**
-     * A dummy fragment representing a section of the app, but that simply
-     * displays dummy text.
+     * AddClipsFragment -- let's user add clips to current Scene
      */
     public class AddClipsFragment extends Fragment {
         private final static String TAG = "AddClipsFragment";
@@ -566,8 +565,8 @@ public class SceneEditorActivity extends org.holoeverywhere.app.Activity impleme
     }
 
     /**
-     * A dummy fragment representing a section of the app, but that simply
-     * displays dummy text.
+     * OrderClipsFragment - sortable list of clips currently in Scene, also lets
+     * you preview the current scene in an in app video/audio player
      */
     public class OrderClipsFragment extends Fragment {
         private final static String TAG = "OrderClipsFragment";
@@ -709,8 +708,8 @@ public class SceneEditorActivity extends org.holoeverywhere.app.Activity impleme
     }
 
     /**
-     * A dummy fragment representing a section of the app, but that simply
-     * displays dummy text.
+     * PublishFragment --- fragment that let's the user enter final details and
+     * kick off a rendering and publish to a number of backends
      */
     public class PublishFragment extends Fragment {
         private final static String TAG = "PublishFragment";
