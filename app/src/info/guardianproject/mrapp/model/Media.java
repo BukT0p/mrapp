@@ -13,7 +13,9 @@ import android.util.Log;
 
 public class Media {
 	private static final String TAG = "Media";
-	
+
+	// FIXME clean up duplication with Template.Clip and arrays.xml
+    // FIXME template meta should be copied into db records so we can change definitions of templates and existing stories won't get broken
     protected Context context;
     protected int id;
     protected String path;

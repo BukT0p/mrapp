@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array name="cliptype_thumbnails">
         <item>@drawable/cliptype_close</item>
         <item>@drawable/cliptype_detail</item>
@@ -7,7 +8,6 @@
         <item>@drawable/cliptype_medium</item>
         <item>@drawable/cliptype_wide</item>
     </string-array>
-
     <string-array name="cliptypes">
         <item>cliptype_close</item>
         <item>cliptype_detail</item>
@@ -16,6 +16,7 @@
         <item>cliptype_wide</item>
     </string-array>
     
+    <!--  FIXME remove the eg_ titles after we have moved everything over to real templates -->
     <string-array name="eg_scene_titles">
         <item>Scene 1: Introduction</item>
         <item>Scene 2: When</item>
